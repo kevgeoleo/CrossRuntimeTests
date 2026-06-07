@@ -27,8 +27,6 @@ test('structuredClone with transfer of ReadableStream', () => {
     error = err;
   }
 
-  // In Node (current expected behavior), this SHOULD succeed per spec intent,
-  // but in runtimes like Bun it throws DataCloneError.
   assert.equal(
     threw,
     false,

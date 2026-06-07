@@ -12,7 +12,7 @@ test('Buffer.concat must preserve very large buffers (>4GB boundary)', () => {
   // Sanity check source
   assert.strictEqual(largeBuffer.length, 2 ** 32 + 5);
 
-  // Core regression: concat must NOT truncate at 4GB boundary
+  // concat must NOT truncate at 4GB boundary
   assert.strictEqual(
     result.length,
     largeBuffer.length,
