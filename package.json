@@ -1,0 +1,7 @@
+{
+  "name": "cross-runtime-tests",
+  "version": "1.0.0",
+  "dependencies": {
+    "quick-lru": "^7.0.0"
+  }
+}

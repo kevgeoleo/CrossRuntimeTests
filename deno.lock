@@ -1,0 +1,18 @@
+{
+  "version": "5",
+  "specifiers": {
+    "npm:quick-lru@7": "7.1.0"
+  },
+  "npm": {
+    "quick-lru@7.1.0": {
+      "integrity": "sha512-Pzd/4IFnTb8E+I1P5rbLQoqpUHcXKg48qTYKi4EANg+sTPwGFEMOcYGiiZz6xuQcOMZP7MPsrdAPx+16Q8qahg=="
+    }
+  },
+  "workspace": {
+    "packageJson": {
+      "dependencies": [
+        "npm:quick-lru@7"
+      ]
+    }
+  }
+}
