@@ -1,3 +1,6 @@
+// https://github.com/oven-sh/bun/issues/29074
+// https://github.com/denoland/deno/issues/35230
+
 import test from 'node:test';
 import assert from 'node:assert';
 
