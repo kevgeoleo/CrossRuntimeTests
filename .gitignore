@@ -1,2 +1,5 @@
 node_modules/
 *.heapsnapshot
+tests/node_modules/
+tmp_*
+tests/tmp_*
