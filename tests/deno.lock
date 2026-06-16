@@ -3,13 +3,20 @@
   "specifiers": {
     "npm:@types/node@*": "22.15.15",
     "npm:nodejs-polars@~0.25.1": "0.25.1",
-    "npm:quick-lru@7": "7.1.0"
+    "npm:quick-lru@7": "7.1.0",
+    "npm:z3-solver@^4.16.0": "4.16.0"
   },
   "npm": {
     "@types/node@22.15.15": {
       "integrity": "sha512-R5muMcZob3/Jjchn5LcO8jdKwSCbzqmPB6ruBxMcf9kbxtniZHP327s6C37iOfuw8mbKK3cAQa7sEl7afLrQ8A==",
       "dependencies": [
         "undici-types"
+      ]
+    },
+    "async-mutex@0.3.2": {
+      "integrity": "sha512-HuTK7E7MT7jZEh1P9GtRW9+aTWiDWWi9InbZ5hjxrnRa39KS4BW04+xLBhYNS2aXhHUIKZSw3gj4Pn1pj+qGAA==",
+      "dependencies": [
+        "tslib"
       ]
     },
     "nodejs-polars-android-arm64@0.25.1": {
@@ -68,15 +75,25 @@
     "quick-lru@7.1.0": {
       "integrity": "sha512-Pzd/4IFnTb8E+I1P5rbLQoqpUHcXKg48qTYKi4EANg+sTPwGFEMOcYGiiZz6xuQcOMZP7MPsrdAPx+16Q8qahg=="
     },
+    "tslib@2.8.1": {
+      "integrity": "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="
+    },
     "undici-types@6.21.0": {
       "integrity": "sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ=="
+    },
+    "z3-solver@4.16.0": {
+      "integrity": "sha512-vWT+I5Yz0dXtseLVZsnkwAIrRmbxw0rCX5a6Xglc6n1CyPESNMnHB3iAWh7XTQQHZRlpWYnKJXTJ0ahTTNHZEg==",
+      "dependencies": [
+        "async-mutex"
+      ]
     }
   },
   "workspace": {
     "packageJson": {
       "dependencies": [
         "npm:nodejs-polars@~0.25.1",
-        "npm:quick-lru@7"
+        "npm:quick-lru@7",
+        "npm:z3-solver@^4.16.0"
       ]
     }
   }

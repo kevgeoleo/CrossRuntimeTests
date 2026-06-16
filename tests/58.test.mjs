@@ -1,33 +1,41 @@
-// https://github.com/oven-sh/bun/issues/29194
+// https://github.com/oven-sh/bun/issues/29195
 
 import test from "node:test";
 import assert from "node:assert/strict";
-import { spawn } from "node:child_process";
 
-test("signal-exit onExit handler runs at process exit", async () => {
-  const output = await new Promise((resolve, reject) => {
-    const child = spawn(process.execPath, ["fixture.mjs"], {
-      stdio: ["ignore", "pipe", "pipe"],
-    });
+const url = "https://example.com/";
 
-    let stdout = "";
-    let stderr = "";
+const invalidInitValues = [
+  0,
+  0n,
+  "",
+  false,
+  Symbol("test"),
+];
 
-    child.stdout.on("data", chunk => {
-      stdout += chunk;
-    });
+async function runFetch(v) {
+  try {
+    await fetch(url, v);
+    return { ok: true };
+  } catch (e) {
+    return { ok: false, error: e };
+  }
+}
 
-    child.stderr.on("data", chunk => {
-      stderr += chunk;
-    });
+for (const v of invalidInitValues) {
+  test(`fetch(url, ${String(v)}) should throw TypeError`, async () => {
+    const res = await runFetch(v);
 
-    child.on("error", reject);
+    // Node expects rejection
+    assert.equal(
+      res.ok,
+      false,
+      "fetch should reject invalid RequestInit values"
+    );
 
-    child.on("exit", code => {
-      resolve({ code, stdout, stderr });
-    });
+    assert.ok(
+      res.error instanceof TypeError,
+      `Expected TypeError, got ${res.error?.name}`
+    );
   });
-
-  assert.equal(output.code, 0);
-  assert.match(output.stdout, /process exited!/);
-});
+}

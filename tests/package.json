@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "nodejs-polars": "^0.25.1",
-    "quick-lru": "^7.0.0"
+    "quick-lru": "^7.0.0",
+    "z3-solver": "^4.16.0"
   }
 }
