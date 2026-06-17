@@ -1,4 +1,5 @@
 // https://github.com/oven-sh/bun/issues/29227
+// linux specific
 
 import test from "node:test";
 import assert from "node:assert/strict";
@@ -11,11 +12,6 @@ test("dns.lookup('mongo-1') prefers IPv4 when hostname resolves", async (t) => {
     });
   });
 
-  if (result === null) {
-    t.skip("mongo-1 does not resolve in this environment");
-    return;
-  }
-
   assert.equal(result.address, "127.0.0.1");
   assert.equal(result.family, 4);
-});
+});u
